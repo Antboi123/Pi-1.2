@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>1 Million Digits of Pi</title>
+  <style>
+    body { background: #222; color: #0f0; font-family: monospace; margin: 0; padding: 20px; }
+    h1 { text-align: center; color: #0ff; }
+    .pi-box { background: #000; border: 1px solid #0f0; padding: 10px; height: 90vh; overflow: auto; white-space: pre-wrap; word-wrap: break-word; font-size: 14px; line-height: 1.4; }
+  </style>
+</head>
+<body>
+  <h1>π — 1 Million Digits</h1>
+  <div class="pi-box" id="piBox">Loading π digits…</div>
+
+  <script>
+    fetch("pi_1000000_digits.txt")
+      .then(r => r.text())
+      .then(txt => {
+        let output = "", count = 0;
+        for (let c of txt) {
+          if (c === '.' || (c >= '0' && c <= '9')) {
+            output += c;
+            count++;
+            if (count % 10 === 0) output += ' ';
+            if (count % 100 === 0) output += '\n';
+          }
+        }
+        document.getElementById("piBox").textContent = output;
+      })
+      .catch(e => {
+        document.getElementById("piBox").textContent = "Error loading π digits.";
+        console.error(e);
+      });
+  </script>
+</body>
+</html>
