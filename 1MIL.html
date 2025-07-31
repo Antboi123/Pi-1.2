@@ -7,11 +7,32 @@
     body { background: #222; color: #0f0; font-family: monospace; margin: 0; padding: 20px; }
     h1 { text-align: center; color: #0ff; }
     .pi-box { background: #000; border: 1px solid #0f0; padding: 10px; height: 90vh; overflow: auto; white-space: pre-wrap; word-wrap: break-word; font-size: 14px; line-height: 1.4; }
+		button {
+	width: 400px;
+	height: 70px;
+	font-size: 30px;
+	border-radius: 25px;
+	background-color: black;
+    color: #00ffcc;
+	border-color: #00ffcc;
+	box-shadow: 10px 10px 5px rgb(10, 10, 10);
+	self-align: center;
+	}
+	button:hover {
+    color: #3BC4A9;
+	border-color: #3BC4A9;
+	box-shadow: 10px 10px 5px rgb(20, 20, 20);
+	background-color: rgb(20, 20, 20);
+	cursor: pointer;
+	}
   </style>
 </head>
 <body>
   <h1>π — 1 Million Digits</h1>
   <div class="pi-box" id="piBox">Loading π digits…</div>
+	<a href="https://antboi123.github.io/Pi-1.1/">
+		<button>Return</button>
+	</a>
 
   <script>
     fetch("pi_1000000_digits.txt")
